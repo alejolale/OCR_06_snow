@@ -22,12 +22,13 @@ class Commentary
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\Column(type: 'integer')]
-    private $userId;
-
     #[ORM\ManyToOne(targetEntity: Tricks::class, inversedBy: 'commentaries')]
     #[ORM\JoinColumn(nullable: false)]
     private $trickId;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commentaries')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $userId;
 
     public function getId(): ?int
     {
@@ -70,18 +71,6 @@ class Commentary
         return $this;
     }
 
-    public function getUserId(): ?int
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(int $userId): self
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
     public function getTrickId(): ?Tricks
     {
         return $this->trickId;
@@ -90,6 +79,18 @@ class Commentary
     public function setTrickId(?Tricks $trickId): self
     {
         $this->trickId = $trickId;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }
