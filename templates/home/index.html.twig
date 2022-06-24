@@ -3,8 +3,31 @@
 {% block title %}Snow tricks!{% endblock %}
 
 {% block body %}
-<div>
-    <div class="w-full bg-gray-100 flex flex-col text-center space-y-6 items-center justify-center min-h-screen " >
+<div class="flex flex-col">
+    <div>
+        <div class="relative flex items-center justify-center overflow-hidden h-screen">
+
+            <div class="relative z-10 w-[80%] py-20 lg:w-1/2 border border-white border-2 pl-4 sm:pl-10">
+                <img class="absolute -top-20 h-32 w-32" src="../{{ asset('images/snowboard.png') }}" alt="logo">
+                <span class="text-5xl text-white">SnowTricks</span>
+                <br>
+                <div class="mt-4">
+                    <span class="text-3xl text-gray-100 sm:text-center">We are born to snowboard</span>
+                </div>
+            </div>
+            <a href="#tricks" class="absolute z-10 bottom-[100px] right-6 w-10 h-10 border border-white border-2 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-angle-down text-white w-8 h-8"></i>
+            </a>
+            <video autoPlay loop muted class="z-1 absolute min-h-full min-w-full max-w-none">
+                <source src="../{{ asset('videos/snowVideo.mp4') }}" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 h-screen w-full bg-black opacity-50" />
+
+        </div>
+    </div>
+
+    <div id="tricks" class="w-full bg-gray-100 flex flex-col text-center space-y-6 items-center justify-center min-h-screen " >
         <h1 class="text-blue-500 text-2xl">I <span class="text-red-500">&hearts;</span> Symfony and TailwindCSS</h1>
 
         <button class="btn">Button test</button>
