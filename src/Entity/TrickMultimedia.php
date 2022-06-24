@@ -22,6 +22,9 @@ class TrickMultimedia
     #[ORM\JoinColumn(nullable: false)]
     private $trickId;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $type;
+
     public function __construct()
     {
         $this->trick = new ArrayCollection();
@@ -60,6 +63,18 @@ class TrickMultimedia
     public function setTrickId(?Tricks $trickId): self
     {
         $this->trickId = $trickId;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
