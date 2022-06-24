@@ -21,9 +21,6 @@ class Tricks
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $editedAt;
-
     #[ORM\Column(type: 'string', length: 255)]
     private $description;
 
@@ -32,6 +29,9 @@ class Tricks
 
     #[ORM\OneToMany(mappedBy: 'trickId', targetEntity: Commentary::class, orphanRemoval: true)]
     private $commentaries;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $editedAt;
 
     public function __construct()
     {
@@ -64,18 +64,6 @@ class Tricks
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getEditedAt(): ?\DateTimeImmutable
-    {
-        return $this->editedAt;
-    }
-
-    public function setEditedAt(\DateTimeImmutable $editedAt): self
-    {
-        $this->editedAt = $editedAt;
 
         return $this;
     }
@@ -148,6 +136,18 @@ class Tricks
                 $commentary->setTrickId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEditedAt(): ?\DateTimeImmutable
+    {
+        return $this->editedAt;
+    }
+
+    public function setEditedAt(?\DateTimeImmutable $editedAt): self
+    {
+        $this->editedAt = $editedAt;
 
         return $this;
     }
