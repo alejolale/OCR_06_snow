@@ -3,37 +3,49 @@
 {% block title %}Snow tricks!{% endblock %}
 
 {% block body %}
-<div class="flex flex-col">
-    <div>
-        <div class="relative flex items-center justify-center overflow-hidden h-screen">
+<div class="flex flex-col bg-gray-100">
 
-            <div class="relative z-10 w-[80%] py-20 lg:w-1/2 border border-white border-2 pl-4 sm:pl-10">
-                <img class="absolute -top-20 h-32 w-32" src="../{{ asset('images/snowboard.png') }}" alt="logo">
-                <span class="text-5xl text-white">SnowTricks</span>
-                <br>
-                <div class="mt-4">
-                    <span class="text-3xl text-gray-100 sm:text-center">We are born to snowboard</span>
+    {% block homeVideo %}
+        {% include "partials/_Home_video.html.twig" %}
+    {% endblock %}
+
+    <div id="tricks" class="pt-20 flex flex-col items-center p-6">
+        <div class="max-w-screen-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex justify-center w-full" >
+            {#card#}
+            <div class="block rounded-lg shadow-lg bg-white w-full sm:max-w-sm self-center">
+                <img class="h-[50%] w-full rounded-t-lg" src="../{{ asset('images/trickImage.jpeg') }}" alt="logo">
+                <div class=" p-6  ">
+                    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Card title</h5>
+                    <p class="text-gray-700 text-base mb-4 line-clamp-3">
+                        Some quick example text to build on the card title and make up the bulk of the card's
+                        content.
+                    </p>
+                    <div class="flex flex-row justify-between">
+                        <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Voir</button>
+                        <div>
+                            <button type="button" class=" inline-block px-6 py-2.5 bg-cyan-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-cyan-700 hover:shadow-lg focus:bg-cyan-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <i class="fa-solid fa-pen-to-square w-6"></i>
+                            </button>
+
+                            <button type="button" class=" inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <i class="fa-solid fa-trash w-6"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="#tricks" class="absolute z-10 bottom-[100px] right-6 w-10 h-10 border border-white border-2 rounded-full flex items-center justify-center">
-                <i class="fa-solid fa-angle-down text-white w-8 h-8"></i>
-            </a>
-            <video autoPlay loop muted class="z-1 absolute min-h-full min-w-full max-w-none">
-                <source src="../{{ asset('videos/snowVideo.mp4') }}" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 h-screen w-full bg-black opacity-50" />
-
         </div>
+
     </div>
 
-    <div id="tricks" class="w-full bg-gray-100 flex flex-col text-center space-y-6 items-center justify-center min-h-screen " >
-        <h1 class="text-blue-500 text-2xl">I <span class="text-red-500">&hearts;</span> Symfony and TailwindCSS</h1>
-
-        <button class="btn">Button test</button>
-        <div>
-            sergio prieto
-        </div>
+    <div class="my-10 relative flex items-center justify-center">
+        <button>
+            <i class="fa-solid fa-circle-plus w-16 h-16"></i>
+        </button>
+        <a class="absolute right-6" href="#video">
+            <i class="fa-solid fa-angle-up w-10 h-10"></i>
+        </a>
     </div>
+
 </div>
 {% endblock %}
