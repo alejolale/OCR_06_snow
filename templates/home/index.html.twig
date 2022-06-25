@@ -3,14 +3,49 @@
 {% block title %}Snow tricks!{% endblock %}
 
 {% block body %}
-<div>
-    <div class="w-full bg-gray-100 flex flex-col text-center space-y-6 items-center justify-center min-h-screen " >
-        <h1 class="text-blue-500 text-2xl">I <span class="text-red-500">&hearts;</span> Symfony and TailwindCSS</h1>
+<div class="flex flex-col bg-gray-100">
 
-        <button class="btn">Button test</button>
-        <div>
-            sergio prieto
+    {% block homeVideo %}
+        {% include "partials/_Home_video.html.twig" %}
+    {% endblock %}
+
+    <div id="tricks" class="pt-20 flex flex-col items-center p-6">
+        <div class="max-w-screen-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex justify-center w-full" >
+            {#card#}
+            <div class="block rounded-lg shadow-lg bg-white w-full sm:max-w-sm self-center">
+                <img class="h-[50%] w-full rounded-t-lg" src="../{{ asset('images/trickImage.jpeg') }}" alt="logo">
+                <div class=" p-6  ">
+                    <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Card title</h5>
+                    <p class="text-gray-700 text-base mb-4 line-clamp-3">
+                        Some quick example text to build on the card title and make up the bulk of the card's
+                        content.
+                    </p>
+                    <div class="flex flex-row justify-between">
+                        <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Voir</button>
+                        <div>
+                            <button type="button" class=" inline-block px-6 py-2.5 bg-cyan-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-cyan-700 hover:shadow-lg focus:bg-cyan-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <i class="fa-solid fa-pen-to-square w-6"></i>
+                            </button>
+
+                            <button type="button" class=" inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                                <i class="fa-solid fa-trash w-6"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
+
+    <div class="my-10 relative flex items-center justify-center">
+        <button>
+            <i class="fa-solid fa-circle-plus w-16 h-16"></i>
+        </button>
+        <a class="absolute right-6" href="#video">
+            <i class="fa-solid fa-angle-up w-10 h-10"></i>
+        </a>
+    </div>
+
 </div>
 {% endblock %}
