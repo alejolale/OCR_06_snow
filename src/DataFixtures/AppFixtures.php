@@ -30,8 +30,8 @@ class AppFixtures extends Fixture
         $user->setLastname('prieto');
         $user->setPassword('azerty');
         $user->setEmail('sergio@yieldstudio.fr');
-        $user->setType('admin');
         $user->setConfirmed(true);
+        $user->setRoles(['admin', 'user']);
 
         $manager->persist($user);
         $manager->flush();
@@ -43,8 +43,9 @@ class AppFixtures extends Fixture
             $user->setLastname($this->faker->lastName());
             $user->setPassword($this->faker->password());
             $user->setEmail($this->faker->email());
-            $user->setType('visitor');
             $user->setConfirmed(false);
+            $user->setRoles(['user']);
+
 
             $manager->persist($user);
         }
