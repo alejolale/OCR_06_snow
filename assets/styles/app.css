@@ -4,6 +4,20 @@
 
 @layer components {
     .btn {
-        @apply bg-red-500 text-white p-4 rounded
+        @apply bg-green-800 text-white p-4 rounded
+    }
+    .title {
+        @apply font-bold text-2xl text-gray-700
+    }
+    .link {
+        @apply text-blue-400 no-underline hover:underline
+    }
+    .label {
+        @apply inline-block mt-4 text-gray-700
+    }
+    .input {
+        @apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
+        border border-solid border-gray-300 rounded transition ease-in-out m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
     }
 }

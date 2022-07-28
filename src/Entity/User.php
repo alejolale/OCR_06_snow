@@ -32,7 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     #[ORM\Column(type: 'boolean')]
-    private $confirmed;
+    private $confirmed = false;
 
 
 
