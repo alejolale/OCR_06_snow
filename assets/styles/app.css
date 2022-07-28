@@ -20,4 +20,7 @@
         border border-solid border-gray-300 rounded transition ease-in-out m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
     }
+    .success {
+        @apply bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mt-4
+    }
 }
