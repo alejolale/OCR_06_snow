@@ -44,7 +44,6 @@ class UserController extends AbstractController
     #[Route('/utilisateur/edition-password/{id}', name: 'user.edit.password', methods: ['GET', 'POST'])]
     public function editPassword(User $user, Request $request, UserPasswordHasherInterface $hasher, EntityManagerInterface $manager): Response
     {
-        dd($user);
         if (!$this->getUser() || $this->getUser() !== $user) {
             return $this->redirectToRoute('security.login');
         }
